@@ -1,28 +1,34 @@
-// Interfaz de la clase Pista (clase base).
-// Datos comunes a cualquier cosa que se pueda reproducir.
-// Relación: una Pista TIENE una Duracion (composición).
 
-#ifndef PISTA_H
-#define PISTA_H
 
-#include <string>
 
-#include "Duracion.h"
+#include "Pista.h"
+#include <iostream>
 
-class Pista {
-private:
-    std::string titulo;
-    Duracion duracion;
+Pista::Pista(const std::string& titulo, int min, int seg)
+    : titulo(titulo), duracion(min, seg)
+{
+    if (this->titulo.empty()) {
+        this->titulo = "Sin título";
+    }
+}
 
-public:
-    Pista(const std::string& titulo, int min, int seg);
+std::string Pista::getTitulo() const {
+    return titulo;
+}
 
-    std::string getTitulo() const;
-    Duracion getDuracion() const;
+Duracion Pista::getDuracion() const {
+    return duracion;
+}
 
-    // TODO 2.2: declara  void setTitulo(const std::string& nuevoTitulo);
+void Pista::setTitulo(const std::string& nuevoTitulo) {
+    if (nuevoTitulo.empty()) {
+        titulo = "Sin título";
+    } else {
+        titulo = nuevoTitulo;
+    }
+}
 
-    // TODO 2.3: declara  void mostrarInfo() const;
-};
-
-#endif
+void Pista::mostrarInfo() const {
+    std::cout << "Título: " << titulo
+              << " | Duración: " << duracion << std::endl;
+}

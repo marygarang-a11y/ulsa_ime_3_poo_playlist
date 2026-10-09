@@ -1,13 +1,35 @@
-// Implementación de la clase Cancion.
 
 #include "Cancion.h"
 
 #include <iostream>
 
-// TODO 3.1: implementa el constructor de Cancion.
-//   Llama al constructor de Pista desde la lista de inicialización.
+// Constructor de Cancion
+Cancion::Cancion(const std::string& titulo, int min, int seg,
+                 const std::string& artista, const std::string& genero)
+    : Pista(titulo, min, seg),
+      artista(artista),
+      genero(genero)
+{
+}
 
-// TODO 3.1: implementa getArtista() y getGenero().
+// Obtener el artista
+std::string Cancion::getArtista() const
+{
+    return artista;
+}
 
-// TODO 3.1: implementa  void Cancion::mostrar() const
-//   Llama a mostrarInfo() y agrega artista y género.
+// Obtener el género
+std::string Cancion::getGenero() const
+{
+    return genero;
+}
+
+// Mostrar la información de la canción
+void Cancion::mostrar() const
+{
+    mostrarInfo();
+
+    std::cout << "Artista: " << artista
+              << " | Género: " << genero
+              << std::endl;
+}

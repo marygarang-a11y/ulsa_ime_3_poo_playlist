@@ -1,30 +1,27 @@
-// Interfaz de la clase Playlist.
-// Relación: una Playlist USA canciones y podcasts que ya existen (agregación).
+// Interfaz de la clase Duracion.
+// Guarda un tiempo en minutos y segundos, siempre en un estado válido.
 
-#ifndef PLAYLIST_H
-#define PLAYLIST_H
+#ifndef DURACION_H
+#define DURACION_H
 
-#include <string>
-#include <vector>
+class Duracion {
+private:
+    int minutos;
+    int segundos;
 
-#include "Cancion.h"
-#include "Duracion.h"
-#include "Podcast.h"
+public:
+    Duracion(int min, int seg);
 
-// TODO 4.1: declara la clase Playlist.
-//   Atributos privados:
-//     std::string nombre;
-//     std::vector<Cancion*> canciones;
-//     std::vector<Podcast*> podcasts;
-//   Constructor: recibe el nombre.
-//
-// TODO 4.2: declara  bool agregarCancion(Cancion* cancion);
-// TODO 4.3: declara  bool agregarPodcast(Podcast* podcast);
-// TODO 4.4: declara  int cantidadPistas() const;
-// TODO 4.5: declara  Duracion duracionTotal() const;
-// TODO 4.6: declara  void mostrar() const;
-//
-// Pregunta: la Playlist no tiene destructor que haga delete de las pistas.
-// ¿Por qué eso es lo correcto en una agregación?
+    int getMinutos() const;
+    int getSegundos() const;
+
+    // TODO 1.2: declara int totalSegundos() const;
+    int totalSegundos() const;
+
+    // TODO 1.3: declara void imprimir() const;
+    void imprimir() const;
+
+    // Pregunta: ¿qué significa el const al final de estos métodos?
+};
 
 #endif

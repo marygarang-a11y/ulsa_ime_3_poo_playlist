@@ -1,32 +1,37 @@
-// Práctica 1: Playlist de música
-// Programación Orientada a Objetos - Ingeniería Mecatrónica, 3er semestre
-//
-// Compilar (desde la raíz del repositorio):
-//   g++ -Wall -Wextra -std=c++17 -Iinclude src/*.cpp -o playlist
-// Ejecutar:
-//   ./playlist
-//
-// Completa los TODO en el orden que indica la Fase 3 de PRACTICA.md.
-// Compila después de terminar cada clase, no hasta el final.
 
 #include <iostream>
-
 #include "Playlist.h"
 
 int main() {
     std::cout << "Practica 1: Playlist de musica" << std::endl;
-    std::cout << "Plantilla lista. Completa los TODO de include/ y src/." << std::endl;
 
-    // TODO 5.1: crea la biblioteca: al menos tres canciones y un podcast.
+    // TODO 5.1: Crear la biblioteca
+    Cancion cancion1("Perfect", 4, 23, "Ed Sheeran", "Pop");
+    Cancion cancion2("Imagine", 3, 7, "John Lennon", "Rock");
+    Cancion cancion3("Halo", 4, 21, "Beyonce", "Pop");
 
-    // TODO 5.2: crea dos playlists y agrega pistas a cada una.
-    //   Al menos una canción debe estar en las dos playlists.
+    Podcast podcast1("Technology Today", 30, 0,
+                     "John Smith", 1);
 
-    // TODO 5.3: muestra ambas playlists.
+    // TODO 5.2: Crear dos playlists
+    Playlist playlist1("Mis favoritas");
+    Playlist playlist2("Musica para estudiar");
 
-    // TODO 5.4: experimentos guiados de la Fase 3.
+    // Agregar pistas a la primera playlist
+    playlist1.agregarCancion(&cancion1);
+    playlist1.agregarCancion(&cancion2);
+    playlist1.agregarPodcast(&podcast1);
 
-    // TODO 5.5: casos de prueba de la Fase 4.
+    // Agregar pistas a la segunda playlist
+    playlist2.agregarCancion(&cancion1);  // Cancion compartida
+    playlist2.agregarCancion(&cancion3);
+
+    // TODO 5.3: Mostrar ambas playlists
+    std::cout << "\n===== PLAYLIST 1 =====" << std::endl;
+    playlist1.mostrar();
+
+    std::cout << "\n===== PLAYLIST 2 =====" << std::endl;
+    playlist2.mostrar();
 
     return 0;
 }
